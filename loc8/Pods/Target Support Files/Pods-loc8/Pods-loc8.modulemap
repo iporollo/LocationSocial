@@ -1,0 +1,6 @@
+framework module Pods_loc8 {
+  umbrella header "Pods-loc8-umbrella.h"
+
+  export *
+  module * { export * }
+}
