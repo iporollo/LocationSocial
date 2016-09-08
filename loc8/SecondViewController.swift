@@ -18,6 +18,9 @@ class SecondViewController: UIViewController {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.window?.rootViewController = AuthVC
         
+        
+        //need handle logout method
+        
     }
     
     
