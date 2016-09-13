@@ -139,36 +139,37 @@ class UsersViewController: UITableViewController {
         let ref = FIRDatabase.database().reference().child("userMessages").child(uid)
         ref.observeEventType(.ChildAdded, withBlock: { (snapshot) in
             
-            let messageID = snapshot.key
-            let messagesReference = FIRDatabase.database().reference().child("messages").child(messageID)
-            messagesReference.observeEventType(.Value, withBlock: { (snapshot) in
+            let userID = snapshot.key
+            
+            FIRDatabase.database().reference().child("userMessages").child(uid).child(userID).observeEventType(.ChildAdded, withBlock: { (snapshot) in
                 
+                let messageID = snapshot.key
                 
-                if let dictionary = snapshot.value as? [String: AnyObject] {
+                let messagesReference = FIRDatabase.database().reference().child("messages").child(messageID)
+                messagesReference.observeEventType(.Value, withBlock: { (snapshot) in
                     
-                    let message = Message()
-                    message.setValuesForKeysWithDictionary(dictionary)
                     
-                    if let toID = message.toID {
-                        self.messagesDictionary[toID] = message
+                    if let dictionary = snapshot.value as? [String: AnyObject] {
                         
-                        self.messages = Array(self.messagesDictionary.values)
-                        self.messages.sortInPlace({ (message1, message2) ->
-                            Bool in
+                        let message = Message()
+                        message.setValuesForKeysWithDictionary(dictionary)
+                        
+                        if let toID = message.toID {
+                            self.messagesDictionary[toID] = message
+                            self.attemptReloadOfTable()
                             
-                            return message1.timestamp?.intValue > message2.timestamp?.intValue
-                        })
+                        }
+                        
+                        self.attemptReloadOfTable()
                         
                     }
                     
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.tableView.reloadData()
-                    })
-                }
+                    
+                    }, withCancelBlock: nil)
                 
                 
                 }, withCancelBlock: nil)
-            
+
             
             }, withCancelBlock: nil)
     }
@@ -180,6 +181,29 @@ class UsersViewController: UITableViewController {
             }
         }
     }
-
+    
+    private func attemptReloadOfTable() {
+        self.timer?.invalidate()
+        
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(self.handleReloadTable), userInfo:  nil, repeats: false)
+    }
+    
+    var timer: NSTimer?
+    
+    
+    func handleReloadTable() {
+        
+        
+        self.messages = Array(self.messagesDictionary.values)
+        self.messages.sortInPlace({ (message1, message2) ->
+            Bool in
+            
+            return message1.timestamp?.intValue > message2.timestamp?.intValue
+        })
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tableView.reloadData()
+        })
+    }
+    
 }
-

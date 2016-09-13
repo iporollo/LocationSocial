@@ -45,11 +45,11 @@ class ChatLogController: UIViewController, UICollectionViewDataSource, UICollect
     
     func observeMessages() {
         
-        guard let uid = FIRAuth.auth()?.currentUser?.uid else {
+        guard let uid = FIRAuth.auth()?.currentUser?.uid, toID = user.id else {
             return
         }
         
-        let userMessagesRef = FIRDatabase.database().reference().child("userMessages").child(uid)
+        let userMessagesRef = FIRDatabase.database().reference().child("userMessages").child(uid).child(toID)
         userMessagesRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
             
             let messageID = snapshot.key
@@ -65,16 +65,12 @@ class ChatLogController: UIViewController, UICollectionViewDataSource, UICollect
                 let message = Message()
                 message.setValuesForKeysWithDictionary(dictionary)
                 
-                if message.chatPartnerID() == self.user.id {
+                self.messages.append(message)
                     
-                    self.messages.append(message)
-                    
-                    dispatch_async(dispatch_get_main_queue(), {
-                        //self.reloadInputViews()
-                        //idk if this will work
-                        self.collectionView?.reloadData()
-                    })
-                }
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.collectionView?.reloadData()
+                })
+                
                 
                 
                 
@@ -135,21 +131,16 @@ class ChatLogController: UIViewController, UICollectionViewDataSource, UICollect
                 return
             }
             
-            let userMessagesRef = FIRDatabase.database().reference().child("userMessages").child(fromID)
+            let userMessagesRef = FIRDatabase.database().reference().child("userMessages").child(fromID).child(toID)
             
             let messageID = childRef.key
             userMessagesRef.updateChildValues([messageID: 1])
             
-            let recipientUserMessagesRef = FIRDatabase.database().reference().child("userMessages").child(toID)
+            let recipientUserMessagesRef = FIRDatabase.database().reference().child("userMessages").child(toID).child(fromID)
             recipientUserMessagesRef.updateChildValues([messageID: 1])
             
         }
         
     }
-    
-    
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//        return CGSize(width: view.frame.width, height: 80)
-//    }
 
 }

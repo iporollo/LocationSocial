@@ -61,7 +61,25 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYF-nK-7KD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1353.5" y="-467.5"/>
+            <point key="canvasLocation" x="1845.5" y="-878.5"/>
+        </scene>
+        <!--Messages View Controller-->
+        <scene sceneID="hh2-G1-euI">
+            <objects>
+                <viewController id="9M7-iA-PEk" customClass="JSQMessagesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lgY-0E-aGc"/>
+                        <viewControllerLayoutGuide type="bottom" id="jtf-ON-coY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="s9F-Bn-XUI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dnh-Rx-Q7Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2168" y="-98"/>
         </scene>
         <!--Chat Log Controller-->
         <scene sceneID="Ng2-gX-wg0">
@@ -134,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="slA-H9-yvr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1881.5" y="-467.5"/>
+            <point key="canvasLocation" x="2509.5" y="-878.5"/>
         </scene>
         <!--First-->
         <scene sceneID="Lip-t0-1v4">
@@ -146,12 +164,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="HqA-Ao-6No" kind="relationship" relationship="rootViewController" id="2li-gh-ZNw"/>
+                        <segue destination="HqA-Ao-6No" kind="relationship" relationship="rootViewController" id="ygQ-UY-KER"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NR7-5L-8dZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="785.5" y="-467.5"/>
+            <point key="canvasLocation" x="769.5" y="-467.5"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
