@@ -56,30 +56,47 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Users" id="gO2-kI-6J3"/>
                     <connections>
-                        <segue destination="IGC-Xo-rFL" kind="show" identifier="showChatLog" id="sJ4-tf-xCg"/>
+                        <segue destination="JNg-XN-xYi" kind="show" identifier="showChatLog" id="5yz-5b-Qfe"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYF-nK-7KD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1845.5" y="-878.5"/>
         </scene>
-        <!--Messages View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="oHU-Jx-K6h">
+            <objects>
+                <navigationController id="JNg-XN-xYi" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LUh-Fd-Eaj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9M7-iA-PEk" kind="relationship" relationship="rootViewController" id="Kdq-a8-vHN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oVP-0X-rzw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1845.5" y="-6.5"/>
+        </scene>
+        <!--Chat Log ControllerJSQ-->
         <scene sceneID="hh2-G1-euI">
             <objects>
-                <viewController id="9M7-iA-PEk" customClass="JSQMessagesViewController" sceneMemberID="viewController">
+                <viewController id="9M7-iA-PEk" customClass="ChatLogControllerJSQ" customModule="loc8" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lgY-0E-aGc"/>
                         <viewControllerLayoutGuide type="bottom" id="jtf-ON-coY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="s9F-Bn-XUI">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="TWB-WY-rrH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnh-Rx-Q7Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2168" y="-98"/>
+            <point key="canvasLocation" x="2370.5" y="-6.5"/>
         </scene>
         <!--Chat Log Controller-->
         <scene sceneID="Ng2-gX-wg0">
@@ -90,7 +107,7 @@
                         <viewControllerLayoutGuide type="bottom" id="TaI-Od-qyk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="57Y-RP-380">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Uvj-mH-e8F">
@@ -104,7 +121,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="messageCell" id="D0A-Ll-Nox" customClass="ChatMessageCell" customModule="loc8" customModuleProvider="target">
-                                        <rect key="frame" x="6" y="64" width="300" height="77"/>
+                                        <rect key="frame" x="6" y="0.0" width="300" height="77"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="77"/>

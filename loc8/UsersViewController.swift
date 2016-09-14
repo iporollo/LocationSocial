@@ -85,7 +85,7 @@ class UsersViewController: UITableViewController {
                 self.curUser = user
                 self.performSegueWithIdentifier("showChatLog", sender: nil)
                 
-                }, withCancelBlock: nil)
+            }, withCancelBlock: nil)
         }else {
             let tempUser = users[indexPath.row]
             curUser = tempUser
@@ -175,20 +175,31 @@ class UsersViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showChatLog" {
-            if let viewController = segue.destinationViewController as? ChatLogController {
-                viewController.user = curUser
-            }
-        }
+
+        super.prepareForSegue(segue, sender: sender)
+        //let chatViewController = segue.destinationViewController as! ChatLogControllerJSQ
+        let navigationViewController = segue.destinationViewController as! UINavigationController
+        let chatViewController = navigationViewController.viewControllers.first as! ChatLogControllerJSQ
+        chatViewController.senderId = curUser.id
+        chatViewController.senderDisplayName = curUser.name
+        chatViewController.user = curUser
+        
+        
+        //        if segue.identifier == "showChatLog" {
+//            if let viewController = segue.destinationViewController as? ChatLogController {
+//                viewController.user = curUser
+//            }
+//        }
     }
     
+    var timer: NSTimer?
+
     private func attemptReloadOfTable() {
         self.timer?.invalidate()
         
         self.timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(self.handleReloadTable), userInfo:  nil, repeats: false)
     }
     
-    var timer: NSTimer?
     
     
     func handleReloadTable() {
