@@ -56,28 +56,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Users" id="gO2-kI-6J3"/>
                     <connections>
-                        <segue destination="JNg-XN-xYi" kind="show" identifier="showChatLog" id="5yz-5b-Qfe"/>
+                        <segue destination="9M7-iA-PEk" kind="show" identifier="showChatLog" id="ZbF-tA-lOs"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYF-nK-7KD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1845.5" y="-878.5"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="oHU-Jx-K6h">
-            <objects>
-                <navigationController id="JNg-XN-xYi" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LUh-Fd-Eaj">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="9M7-iA-PEk" kind="relationship" relationship="rootViewController" id="Kdq-a8-vHN"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oVP-0X-rzw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1845.5" y="-6.5"/>
         </scene>
         <!--Chat Log ControllerJSQ-->
         <scene sceneID="hh2-G1-euI">
@@ -96,80 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnh-Rx-Q7Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2370.5" y="-6.5"/>
-        </scene>
-        <!--Chat Log Controller-->
-        <scene sceneID="Ng2-gX-wg0">
-            <objects>
-                <viewController id="IGC-Xo-rFL" customClass="ChatLogController" customModule="loc8" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="djb-7D-T5b"/>
-                        <viewControllerLayoutGuide type="bottom" id="TaI-Od-qyk"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="57Y-RP-380">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Uvj-mH-e8F">
-                                <rect key="frame" x="32" y="64" width="312" height="455"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mTd-K2-bqb">
-                                    <size key="itemSize" width="300" height="77"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="messageCell" id="D0A-Ll-Nox" customClass="ChatMessageCell" customModule="loc8" customModuleProvider="target">
-                                        <rect key="frame" x="6" y="0.0" width="300" height="77"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="77"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KdH-I8-JX6">
-                                                    <rect key="frame" x="134" y="8" width="158" height="63"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <connections>
-                                            <outlet property="messageText" destination="KdH-I8-JX6" id="dKC-Cp-9dE"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="IGC-Xo-rFL" id="m0I-87-NcZ"/>
-                                    <outlet property="delegate" destination="IGC-Xo-rFL" id="3i8-x2-oqt"/>
-                                </connections>
-                            </collectionView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Message..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aKD-QG-2UY">
-                                <rect key="frame" x="8" y="580" width="223" height="30"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lk5-lI-49e">
-                                <rect key="frame" x="309" y="580" width="46" height="30"/>
-                                <state key="normal" title="Send"/>
-                                <connections>
-                                    <action selector="sendMessage:" destination="IGC-Xo-rFL" eventType="touchUpInside" id="cjr-mv-fT2"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="collectionView" destination="Uvj-mH-e8F" id="z2K-dl-xYj"/>
-                        <outlet property="messageInputField" destination="aKD-QG-2UY" id="cmH-N6-A1m"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="slA-H9-yvr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2509.5" y="-878.5"/>
+            <point key="canvasLocation" x="2557.5" y="-878.5"/>
         </scene>
         <!--First-->
         <scene sceneID="Lip-t0-1v4">

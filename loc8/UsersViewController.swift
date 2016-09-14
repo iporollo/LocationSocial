@@ -177,19 +177,13 @@ class UsersViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         super.prepareForSegue(segue, sender: sender)
-        //let chatViewController = segue.destinationViewController as! ChatLogControllerJSQ
-        let navigationViewController = segue.destinationViewController as! UINavigationController
-        let chatViewController = navigationViewController.viewControllers.first as! ChatLogControllerJSQ
+        let chatViewController = segue.destinationViewController as! ChatLogControllerJSQ
+        //let navigationViewController = segue.destinationViewController as! UINavigationController
+        //let chatViewController = navigationViewController.viewControllers.first as! ChatLogControllerJSQ
         chatViewController.senderId = curUser.id
         chatViewController.senderDisplayName = curUser.name
         chatViewController.user = curUser
-        
-        
-        //        if segue.identifier == "showChatLog" {
-//            if let viewController = segue.destinationViewController as? ChatLogController {
-//                viewController.user = curUser
-//            }
-//        }
+
     }
     
     var timer: NSTimer?
